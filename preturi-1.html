@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listă Prețuri 2026 – Enzo Beauty Salon</title>
+<style>
+  :root { --red: #FF2E2E; --black: #0a0a0a; --card: #141414; --border: #222; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--black); color: #fff; font-family: 'Segoe UI', sans-serif; }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #1a0000, #0a0a0a);
+    border-bottom: 3px solid var(--red);
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+  }
+  .header-badge { background: var(--red); color: #fff; font-size: 0.72rem; letter-spacing: 3px; padding: 4px 16px; border-radius: 20px; font-family: monospace; display: inline-block; margin-bottom: 1rem; text-transform: uppercase; }
+  header h1 { font-size: 2.4rem; margin-bottom: 0.4rem; }
+  header h1 span { color: var(--red); }
+  header p { color: #888; font-size: 0.95rem; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+
+  /* CATEGORY BLOCK */
+  .category { margin-bottom: 2.5rem; }
+  .category-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--red);
+  }
+  .category-icon { font-size: 1.5rem; }
+  .category-header h2 { font-size: 1.3rem; color: var(--red); }
+  .category-header small { color: #555; font-size: 0.78rem; font-family: monospace; margin-left: auto; }
+
+  /* PRICE ROWS */
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1.2rem;
+    background: var(--card);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .price-row:hover { border-color: #ff2e2e55; }
+  .price-row.featured { border-color: var(--red); background: #1a0000; }
+  .service-name { font-size: 0.95rem; color: #ddd; }
+  .service-name .tag { font-size: 0.68rem; background: var(--red); color: #fff; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; font-family: monospace; }
+  .price-wrap { display: flex; align-items: center; gap: 0.8rem; text-align: right; }
+  .old-price { color: #555; font-size: 0.82rem; text-decoration: line-through; }
+  .price { color: var(--red); font-weight: bold; font-size: 1.05rem; white-space: nowrap; }
+
+  /* PACKAGES */
+  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .pkg-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem;
+    transition: border-color 0.2s;
+  }
+  .pkg-card:hover { border-color: var(--red); }
+  .pkg-card.best { border-color: var(--red); background: #110000; }
+  .pkg-badge { background: var(--red); color: #fff; font-size: 0.68rem; padding: 2px 10px; border-radius: 10px; font-family: monospace; display: inline-block; margin-bottom: 0.6rem; }
+  .pkg-card h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .pkg-price { font-size: 1.6rem; color: var(--red); font-weight: bold; margin: 0.5rem 0; }
+  .pkg-price small { font-size: 0.9rem; text-decoration: line-through; color: #555; margin-right: 0.4rem; }
+  .pkg-card ul { list-style: none; margin-top: 0.8rem; }
+  .pkg-card li { font-size: 0.85rem; color: #bbb; padding: 0.3rem 0; padding-left: 1.2rem; position: relative; }
+  .pkg-card li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: bold; }
+
+  /* NOTE */
+  .note {
+    background: #0f0f0f;
+    border: 1px solid #1f1f1f;
+    border-left: 3px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.2rem;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 2rem;
+    line-height: 1.7;
+  }
+  .note strong { color: #ccc; }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    margin: 3rem 0 1rem;
+    padding: 2.5rem;
+    background: #110000;
+    border-radius: 16px;
+    border: 1px solid var(--red);
+  }
+  .cta h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .cta p { color: #888; margin-bottom: 1.5rem; font-size: 0.92rem; }
+  .cta a {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cta a:hover { background: #cc0000; transform: translateY(-2px); }
+
+  footer { text-align: center; padding: 1.5rem; color: #333; font-size: 0.8rem; border-top: 1px solid #1a1a1a; }
+  footer span { color: var(--red); }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.8rem; }
+    .price-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+    .price-wrap { flex-direction: row; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge">Enzo Beauty Salon · Prețuri 2026</div>
+  <h1>Listă <span>Prețuri</span></h1>
+  <p>Aparatură medicală de ultimă generație · Rezultate vizibile de la prima ședință</p>
+</header>
+
+<div class="container">
+
+  <!-- EPILARE LASER -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-icon">⚡</span>
+      <h2>Epilare Definitivă — DERMALASER Pro Max 4000W</h2>
+      <small>preț / ședință</small>
+    </div>
+
+    <div class="price-row">
+      <span class="service-name">Axile</span>
+      <div class="price-wrap"><span class="old-price">250 RON</span><span class="price">180 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Mustață / Obraji</span>
+      <div class="price-wrap"><span class="old-price">180 RON</span><span class="price">130 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Inghinal Parțial</span>
+      <div class="price-wrap"><span class="old-price">280 RON</span><span class="price">200 RON</span></div>
+    </div>
+    <div class="price-row featured">
+      <span class="service-name">Inghinal Total <span class="tag">popular</span></span>
+      <div class="price-wrap"><span class="old-price">400 RON</span><span class="price">280 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Picioare Inferior (gambă)</span>
+      <div class="price-wrap"><span class="old-price">350 RON</span><span class="price">250 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Picioare Integral</span>
+      <div class="price-wrap"><span class="old-price">650 RON</span><span class="price">450 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Abdomen</span>
+      <div class="price-wrap"><span class="old-price">280 RON</span><span class="price">200 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Brațe</span>
+      <div class="price-wrap"><span class="old-price">280 RON</span><span class="price">200 RON</span></div>
+    </div>
+    <div class="price-row featured">
+      <span class="service-name">Full Body <span class="tag">cel mai bun preț</span></span>
+      <div class="price-wrap"><span class="old-price">1200 RON</span><span class="price">750 RON</span></div>
+    </div>
+  </div>
+
+  <!-- OXYGEN FACIAL -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-icon">💨</span>
+      <h2>Tratamente Faciale — ASTRODOME Oxygen Hiperbaric</h2>
+      <small>preț / ședință</small>
+    </div>
+
+    <div class="price-row">
+      <span class="service-name">Oxygen Facial Express (30 min)</span>
+      <div class="price-wrap"><span class="old-price">250 RON</span><span class="price">180 RON</span></div>
+    </div>
+    <div class="price-row featured">
+      <span class="service-name">Oxygen Facial Complet + LED (60 min) <span class="tag">recomandat</span></span>
+      <div class="price-wrap"><span class="old-price">450 RON</span><span class="price">320 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Cromoterapie LED Albastru (acnee)</span>
+      <div class="price-wrap"><span class="old-price">200 RON</span><span class="price">150 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Cromoterapie LED Roșu (antiaging)</span>
+      <div class="price-wrap"><span class="old-price">200 RON</span><span class="price">150 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Oxygen + Cromoterapie Completă</span>
+      <div class="price-wrap"><span class="old-price">550 RON</span><span class="price">380 RON</span></div>
+    </div>
+  </div>
+
+  <!-- M-FORCE -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-icon">💪</span>
+      <h2>Remodelare & Lifting — M-FORCE EMS + RF</h2>
+      <small>preț / ședință</small>
+    </div>
+
+    <div class="price-row">
+      <span class="service-name">Remodelare Abdomen</span>
+      <div class="price-wrap"><span class="old-price">350 RON</span><span class="price">250 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Remodelare Fese & Coapse</span>
+      <div class="price-wrap"><span class="old-price">350 RON</span><span class="price">250 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Remodelare Brațe & Spate</span>
+      <div class="price-wrap"><span class="old-price">320 RON</span><span class="price">220 RON</span></div>
+    </div>
+    <div class="price-row featured">
+      <span class="service-name">Lifting Facial EMYOUNG <span class="tag">nou</span></span>
+      <div class="price-wrap"><span class="old-price">450 RON</span><span class="price">320 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Corp Complet M-FORCE</span>
+      <div class="price-wrap"><span class="old-price">700 RON</span><span class="price">480 RON</span></div>
+    </div>
+  </div>
+
+  <!-- SMART TYPHOON -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-icon">🌀</span>
+      <h2>Anticelulită & Slăbire — Smart Typhoon 2 Vacuum + RF</h2>
+      <small>preț / ședință</small>
+    </div>
+
+    <div class="price-row">
+      <span class="service-name">Vacuum Anticelulită (1 zonă)</span>
+      <div class="price-wrap"><span class="old-price">250 RON</span><span class="price">180 RON</span></div>
+    </div>
+    <div class="price-row featured">
+      <span class="service-name">Vacuum + RF + Infraroșu (corp complet) <span class="tag">popular</span></span>
+      <div class="price-wrap"><span class="old-price">450 RON</span><span class="price">300 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Endosferă + Radiofrecvență Față</span>
+      <div class="price-wrap"><span class="old-price">280 RON</span><span class="price">200 RON</span></div>
+    </div>
+    <div class="price-row">
+      <span class="service-name">Drenaj + Vacuum Presiune (picioare)</span>
+      <div class="price-wrap"><span class="old-price">250 RON</span><span class="price">170 RON</span></div>
+    </div>
+  </div>
+
+  <!-- PACHETE -->
+  <div class="category">
+    <div class="category-header">
+      <span class="category-icon">🎁</span>
+      <h2>Pachete Promoționale</h2>
+      <small>economisești până la 40%</small>
+    </div>
+
+    <div class="packages-grid">
+      <div class="pkg-card">
+        <h3>Laser Start</h3>
+        <div class="pkg-price"><small>400 RON</small>199 RON</div>
+        <ul>
+          <li>3 ședințe epilare (o zonă)</li>
+          <li>1 ședință Oxygen Facial</li>
+          <li>Consultanță gratuită</li>
+        </ul>
+      </div>
+
+      <div class="pkg-card best">
+        <div class="pkg-badge">⭐ Cel mai vândut</div>
+        <h3>Silhouette Diva</h3>
+        <div class="pkg-price"><small>800 RON</small>399 RON</div>
+        <ul>
+          <li>5 ședințe M-FORCE corp</li>
+          <li>3 ședințe Smart Typhoon 2</li>
+          <li>1 ședință Lifting Facial EMS</li>
+        </ul>
+      </div>
+
+      <div class="pkg-card">
+        <h3>Glamour Face</h3>
+        <div class="pkg-price"><small>600 RON</small>299 RON</div>
+        <ul>
+          <li>3 ședințe ASTRODOME Oxygen</li>
+          <li>2 ședințe Lifting EMYOUNG</li>
+          <li>Cromoterapie LED inclus</li>
+        </ul>
+      </div>
+
+      <div class="pkg-card">
+        <h3>Full Laser Body</h3>
+        <div class="pkg-price"><small>3000 RON</small>1499 RON</div>
+        <ul>
+          <li>6 ședințe Full Body Laser</li>
+          <li>Toate zonele incluse</li>
+          <li>Valabil 12 luni</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTE -->
+  <div class="note">
+    <strong>📌 Informații importante:</strong><br>
+    · Prețurile sunt valabile pentru 2026 și pot fi modificate fără preaviz.<br>
+    · Prima consultanță este <strong>gratuită</strong>.<br>
+    · Plata se poate face în numerar sau card.<br>
+    · Pachetele sunt <strong>netransferabile și nominale</strong>.<br>
+    · Reducerile nu se cumulează cu alte promoții.<br>
+    · Programările se pot face online prin Calendly sau telefonic.
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Rezervă o ședință acum</h2>
+    <p>Alege ziua și ora care ți se potrivesc — programare online în 2 minute</p>
+    <a href="https://calendly.com/enzobeautysalon92" target="_blank">📅 Programează-te Online</a>
+  </div>
+
+</div>
+
+<footer>© 2026 <span>Enzo Beauty Salon</span> · Toate drepturile rezervate</footer>
+
+</body>
+</html>
